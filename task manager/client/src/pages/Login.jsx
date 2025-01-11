@@ -42,9 +42,9 @@ const Login = () => {
         </div>
         </div>
         {/* right side */}
-        <div className='w-full md:w-1/3 p-20 md:p-4 flex flex-col items-center justify-center'>
+        <div className='w-full md:w-1/3 p-4 md:p-1 flex flex-col items-center justify-center'>
           <form onSubmit={handleSubmit(submitHandler)} 
-        className='form-container w-full md:w-4[400px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14'>
+        className='form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14'>
           <div className=''>
             <p className='text-blue-600 text-3xl font-bold text-center'>Welcome Back</p>
             <p className='text-center text-base text-gray-700'>
