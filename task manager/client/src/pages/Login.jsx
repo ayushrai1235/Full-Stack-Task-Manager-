@@ -32,7 +32,7 @@ const Login = () => {
             Manage all the task in one place
           </span>
           <p className='flex flex-col gap-0 md:gap-4 text-center text-4xl md:text-6xl font-black text-blue-700'>
-            <span>Cloud-Based</span>
+            <span>An Powerfull</span>
             <span>Task Manager</span>
           </p>
 
