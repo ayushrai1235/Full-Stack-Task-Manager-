@@ -14,6 +14,7 @@ import TaskDetails from "./pages/TaskDetails.jsx";
 import { Toaster } from "sonner";
 import { useSelector } from "react-redux";
 import Sidebar from "./components/Sidebar.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 function Layout() {
   const user = true;
@@ -28,7 +29,7 @@ function Layout() {
       {/* <MobileSidebar /> */}
 
       <div className="flex-1 overflow-y-auto">
-        {/* <Navbar/> */}
+        <Navbar/>
 
         <div className="p-4 2xl:px-10">
           <Outlet />
