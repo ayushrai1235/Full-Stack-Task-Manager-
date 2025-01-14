@@ -80,8 +80,8 @@ const Sidebar = () => {
             <span className='hover:text-[#2564ed]'>{el.label}</span>
           </Link>
         );
-      };
-
+      }; 
+      
     return (
     <div className='w-full h-full flex flex-col gap-6 p-5'>
         <h1 className='flex gap-1 items-center'>
