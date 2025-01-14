@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineSearch } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-
+import {UserAvatar} from "./UserAvatar";
 const Navbar = () => {
     const { user } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
@@ -25,7 +25,9 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-2 items-center">
+          {/* <NotificationPanel /> */}
 
+          <UserAvatar />
         </div>
     </div>
 }
