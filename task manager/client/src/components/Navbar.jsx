@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineSearch } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import {UserAvatar} from "./UserAvatar";
+import UserAvatar from "./UserAvatar.jsx";
 const Navbar = () => {
     const { user } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Navbar = () => {
             placeholder="Search..." 
             className="flex-1 bg-transparent outline-none placeholder:text-gray-500 text-gray-800"
             />
-        </div>  
+        </div>  -
         </div>
 
         <div className="flex gap-2 items-center">
