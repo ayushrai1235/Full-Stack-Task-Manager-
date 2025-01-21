@@ -4,7 +4,7 @@ import {Fragment, useState} from "react";
 import { FaUser, FaUserLock } from 'react-icons/fa';
 import { IoLogOutOutline } from 'react-icons/io5';
 import { get } from 'react-hook-form';
-import { getInitials } from '../utils/getinitials.js';
+import { getInitials } from '../utils/utils.js';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
