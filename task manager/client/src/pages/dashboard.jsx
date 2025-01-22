@@ -12,7 +12,7 @@ import moment from "moment";
 import {chartData} from "../assets/dummydata.js";
 import clsx from "clsx";
 import { summary } from "../assets/dummydata.js";
-
+import {Chart} from "../components/Chart.jsx";
 import { BGS, PRIOTITYSTYELS, TASK_TYPE, getInitials } from "../utils/utils.js";
 
 
@@ -76,6 +76,13 @@ const totals = summary.tasks
 
       </div>
 
+      <div className="w-full bg-white my-16 p-4 rounded shadow-sm">
+        <h4 className="text-xl text-gray-600 font-semibold">
+          Chart by Priority
+        </h4>
+        <Chart/>
+        </div>
+        
        </div>
   
 }
