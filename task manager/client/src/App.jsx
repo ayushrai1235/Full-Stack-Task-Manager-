@@ -23,6 +23,7 @@ import { Fragment } from "react";
 import clsx from "clsx";
 import { IoClose } from "react-icons/io5";
 import mobileMenuRef from "react";
+import Register from "./pages/Register.jsx";
 
 function Layout() {
   const user = true;
@@ -112,7 +113,7 @@ function App() {
           <Route path="/trashed" element={<Trash />} />
           <Route path="/task/:id" element={<TaskDetails />} />
         </Route>
-
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
 

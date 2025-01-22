@@ -1,13 +1,12 @@
-import React from 'react'
-import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Textbox from '../components/Textbox.jsx' 
 import Button from '../components/Button.jsx'
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+const Register = () => {
   const {user} = useSelector(state => state.auth);
   const {
     register,
@@ -22,7 +21,7 @@ const Login = () => {
   }
 
   useEffect(() => {
-    user && navigate('/dashboard');
+    user && navigate('/login');
   }, [user]);
 
   return (
@@ -49,7 +48,7 @@ const Login = () => {
           <form onSubmit={handleSubmit(submitHandler)} 
         className='form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14'>
           <div className=''>
-            <p className='text-blue-600 text-3xl font-bold text-center'>Welcome Back</p>
+            <p className='text-blue-600 text-3xl font-bold text-center'>Get Register </p>
             <p className='text-center text-base text-gray-700'>
               Keep all your crdential safe and secure
             </p>
@@ -63,7 +62,7 @@ const Login = () => {
             label='Email Address'
             className='w-full rounded-full'
             register={register('email', { required: 'Email is required' })}
-            error= {errors.email? errors.email.message : ''}
+            
             />
           </div>
 
@@ -75,16 +74,16 @@ const Login = () => {
             label='Password'
             className='w-full rounded-full'
             register={register('password', { required: 'Password is required' })}
-            error= {errors.password? errors.password.message : ''}
+            
             />
 
           <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
                 Forget Password?
               </span>
               <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
-                <Link to="/register">Doesn't have an account? Go to Register</Link>
+                <Link to="/login">Already logged in? Go to Login</Link>
               </span>
-
+        
               <Button
                 type='submit'
                 label='Submit'
@@ -101,4 +100,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register

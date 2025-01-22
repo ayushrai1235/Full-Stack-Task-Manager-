@@ -58,8 +58,11 @@ const totals = summary.tasks
           <span className="text-2xl font-semibold">{count}</span>
           <span className="text-sm' text-gray-400">{"110 last months"}</span>
         </div>
-
-
+      <div className={clsx(
+        "w-10 h-10 rounded-full flex items-center justify-center text-white", bg  )}>
+          {icon}
+        </div>
+      
 
       </div>
     )
