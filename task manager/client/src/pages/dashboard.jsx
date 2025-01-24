@@ -14,6 +14,7 @@ import clsx from "clsx";
 import { summary } from "../assets/dummydata.js";
 import {Chart} from "../components/Chart.jsx";
 import { BGS, PRIOTITYSTYELS, TASK_TYPE, getInitials } from "../utils/utils.js";
+import UserInfo from "../components/UserInfo.jsx";
 
 const TaskTable = ({ tasks }) => {
   const ICONS = {
@@ -64,7 +65,7 @@ const TaskTable = ({ tasks }) => {
                 BGS[index % BGS.length]
               )}
             >
-              {/* <UserInfo user={m} /> */}
+              <UserInfo user={m} />
             </div>
           ))}
         </div>
@@ -92,13 +93,13 @@ const TaskTable = ({ tasks }) => {
   );
 };
 
-const UserTable = ({ user }) => {
+const UserTable = ({ users }) => {
   const TableHeader = () => (
     <thead className='border-b border-gray-300 '>
       <tr className='text-black  text-left'>
         <th className='py-2'>Full Name</th>
         <th className='py-2'>Status</th>
-        {/* <th className='py-2'>Created At</th> */}
+        <th className='py-2'>Created At</th>
       </tr>
     </thead>
   );
@@ -128,7 +129,7 @@ const UserTable = ({ user }) => {
           {user?.isActive ? "Active" : "Disabled"}
         </p>
       </td>
-      {/* <td className='py-2 text-sm'>{moment(user?.createdAt).fromNow()}</td> */}
+      <td className='py-2 text-sm'>{moment(user?.createdAt).fromNow()}</td>
     </tr>
   );
 
@@ -220,7 +221,7 @@ const totals = summary.tasks
 
         {/* /right */}
 
-        {/* <UserTable users={summary.users} /> */}
+        <UserTable users={summary.users} />
       </div>
     </div>
   
