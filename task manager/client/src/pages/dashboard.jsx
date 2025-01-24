@@ -98,7 +98,7 @@ const UserTable = ({ user }) => {
       <tr className='text-black  text-left'>
         <th className='py-2'>Full Name</th>
         <th className='py-2'>Status</th>
-        <th className='py-2'>Created At</th>
+        {/* <th className='py-2'>Created At</th> */}
       </tr>
     </thead>
   );
@@ -128,7 +128,7 @@ const UserTable = ({ user }) => {
           {user?.isActive ? "Active" : "Disabled"}
         </p>
       </td>
-      <td className='py-2 text-sm'>{moment(user?.createdAt).fromNow()}</td>
+      {/* <td className='py-2 text-sm'>{moment(user?.createdAt).fromNow()}</td> */}
     </tr>
   );
 
