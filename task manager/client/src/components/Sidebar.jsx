@@ -89,7 +89,7 @@ const Sidebar = () => {
                 <MdOutlineAddTask className='text-white text-2xl font-black'/>
             </p>
             <span className='text-2xl font-black text-black'>
-                GiveMeTask
+              TaskFlow
             </span>
         </h1>
 
