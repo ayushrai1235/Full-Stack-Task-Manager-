@@ -28,7 +28,8 @@ const Tasks = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const status = params?.status || " ";
+  const status = params?.status || "";
+
   return loading ? (
     <div className="py-10">
       <Loading />
@@ -47,8 +48,8 @@ const Tasks = () => {
       />
         )}
       </div>
-
-      <div>
+     
+      
       <Tabs tabs={TABS} setSelected={setSelected}>
       {!status && (
           <div className='w-full flex justify-between gap-4 md:gap-x-12 py-4'>
@@ -61,10 +62,7 @@ const Tasks = () => {
           </div>
         )}
       </Tabs>
-      </div>
-    
-  
-  </div>
+    </div>
 )};
 
 export default Tasks;
