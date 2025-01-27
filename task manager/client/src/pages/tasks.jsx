@@ -10,6 +10,7 @@ import Tabs from "../components/Tabs.jsx";
 import TaskTitle from "../components/TaskTitle.jsx";
 import BoardView from "../components/BoardView.jsx";
 import { tasks } from "../assets/dummydata.js";
+import Table from "../components/task/Table.jsx";
 
 const TABS = [
   { title: "Board View", icon: <MdGridView /> },
@@ -65,7 +66,10 @@ const Tasks = () => {
         )}
 
         {
-          selected === 0 ? <BoardView tasks={tasks}/> : <div></div>
+          selected === 0 ? <BoardView tasks={tasks}/> : <div>
+            <Table
+            task={tasks} />
+          </div>
         }
 
       </Tabs>

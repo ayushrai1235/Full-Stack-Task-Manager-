@@ -12,6 +12,7 @@ const ModalWrapper = ({ open, setOpen, children }) => {
         initialFocus={cancelButtonRef}
         onClose={() => setOpen(false)}
       >
+        
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
