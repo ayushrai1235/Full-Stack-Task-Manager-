@@ -593,7 +593,7 @@ export const summary = {
     {
       _id: "65c5f12ab5204a81bde866a9",
       title: "Test task",
-      date: "2024-02-09T00:00:00.000Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "high",
       stage: "todo",
       assets: [
@@ -625,7 +625,7 @@ export const summary = {
       subTasks: [
         {
           title: "Task manager youtube tutorial",
-          date: "2024-02-09T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "tutorial",
           _id: "65c5f153b5204a81bde866c8",
         },
@@ -637,7 +637,7 @@ export const summary = {
     {
       _id: "65c5d547660756f6fd453a7a",
       title: "Duplicate - Duplicate - Review Code Changes",
-      date: "2024-02-09T00:00:00.000Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "medium",
       stage: "in progress",
       assets: [],
@@ -660,21 +660,21 @@ export const summary = {
         {
           type: "started",
           activity: "Project started",
-          date: "2024-02-09T09:16:56.623Z",
+          date: "2025-01-20T00:00:00.000Z",
           by: "65c202d4aa62f32ffd1303cc",
           _id: "65c5f18bb5204a81bde866d1",
         },
         {
           type: "commented",
           activity: "i like coding!!",
-          date: "2024-02-09T09:16:56.623Z",
+          date: "2025-01-20T00:00:00.000Z",
           by: "65c202d4aa62f32ffd1303cc",
           _id: "65c5f19eb5204a81bde866dd",
         },
         {
           type: "bug",
           activity: "bug found",
-          date: "2024-02-09T09:16:56.623Z",
+          date: "2025-01-20T00:00:00.000Z",
           by: "65c202d4aa62f32ffd1303cc",
           _id: "65c5f1abb5204a81bde866eb",
         },
@@ -682,7 +682,7 @@ export const summary = {
       subTasks: [
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-08T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Website App",
           _id: "65c3535476ed5c48f9440973",
         },
@@ -694,7 +694,7 @@ export const summary = {
     {
       _id: "65c46026af6ec0118be9407a",
       title: "Website Project Proposal Review",
-      date: "2024-02-07T00:00:00.000Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "high",
       stage: "todo",
       assets: [
@@ -705,7 +705,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Ayush Rai ",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -756,7 +756,7 @@ export const summary = {
       subTasks: [
         {
           title: "Blog App Dashboard",
-          date: "2024-02-06T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Design",
           _id: "65c352e776ed5c48f944095c",
         },
@@ -774,7 +774,7 @@ export const summary = {
     {
       _id: "65c45fb6af6ec0118be94052",
       title: "Task Manager Youtube Video",
-      date: "2024-02-11T00:00:00.000Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "medium",
       stage: "completed",
       assets: [
@@ -800,14 +800,14 @@ export const summary = {
         {
           type: "started",
           activity: "Project completed!!",
-          date: "2024-02-08T18:13:14.717Z",
+          date: "2025-01-20T00:00:00.000Z",
           by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
           _id: "65c51b998064dfd208b3f9",
         },
         {
           type: "commented",
           activity: "Project completed!!",
-          date: "2024-02-08T18:13:14.717Z",
+          date: "2025-01-20T00:00:00.000Z",
           by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
           _id: "65c51b98064df97d208b3f9",
         },
@@ -834,7 +834,7 @@ export const summary = {
     {
       _id: "65c4586f0548279012f8c256",
       title: "Bug Fixing",
-      date: "2024-02-07T00:00:00.000Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "high",
       stage: "todo",
       assets: [
@@ -853,7 +853,7 @@ export const summary = {
         },
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Ayush Rai",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -889,14 +889,14 @@ export const summary = {
     {
       _id: "65c3c457fb9c6768ce4bc31a",
       title: "Duplicate - Website Project Proposal",
-      date: "2024-02-07T17:55:13.218Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "high",
       stage: "todo",
       assets: [],
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Ayush rai ",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -918,13 +918,13 @@ export const summary = {
       subTasks: [
         {
           title: "Blog App Dashboard",
-          date: "2024-02-06T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Design",
           _id: "65c352e776ed5c48f944095c",
         },
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-07T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Design",
           _id: "65c3531476ed5c48f9440965",
         },
@@ -936,7 +936,7 @@ export const summary = {
     {
       _id: "65c3c439fb9c6768ce4bc308",
       title: "Duplicate - Review Code Changes",
-      date: "2024-02-07T17:55:13.218Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "medium",
       stage: "in progress",
       assets: [],
@@ -978,7 +978,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Ayush rai ",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -1060,7 +1060,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Ayush Rai",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -1132,7 +1132,7 @@ export const summary = {
     {
       _id: "2",
       type: "assigned",
-      activity: "task to Codewave Asante",
+      activity: "task to Ayush ",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },
@@ -1148,14 +1148,14 @@ export const summary = {
     {
       _id: "5",
       type: "bug",
-      activity: "bug to Codewave Asante",
+      activity: "bug to Ayush ",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },
     {
       _id: "4",
       type: "completed",
-      activity: "Codewave Asante has completed the task assigned",
+      activity: "Ayush  has completed the task assigned",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },
