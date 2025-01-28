@@ -66,11 +66,14 @@ const Tasks = () => {
         )}
 
         {
-          selected === 0 ? <BoardView tasks={tasks}/> : <div>
+          selected !== 1 ? (
+          <BoardView tasks={tasks}/>
+          ) : (
+          <div className="w-full">
             <Table
-            task={tasks} />
+            tasks={tasks} />
           </div>
-        }
+        )}
 
       </Tabs>
     </div>
