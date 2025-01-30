@@ -959,7 +959,7 @@ export const summary = {
       subTasks: [
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-08T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Website App",
           _id: "65c3535476ed5c48f9440973",
         },
@@ -971,7 +971,7 @@ export const summary = {
     {
       _id: "65c3c21f55ae9b2f7666e86c",
       title: "Duplicate - Website Project Proposal",
-      date: "2024-02-07T17:46:56.040Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "normal",
       stage: "todo",
       assets: [],
@@ -1000,13 +1000,13 @@ export const summary = {
       subTasks: [
         {
           title: "Blog App Dashboard",
-          date: "2024-02-06T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Design",
           _id: "65c352e776ed5c48f944095c",
         },
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-07T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Design",
           _id: "65c3531476ed5c48f9440965",
         },
@@ -1018,7 +1018,7 @@ export const summary = {
     {
       _id: "65c352b376ed5c48f9440955",
       title: "Review Code Changes",
-      date: "2024-02-05T00:00:00.000Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "medium",
       stage: "in progress",
       assets: [],
@@ -1041,7 +1041,7 @@ export const summary = {
       subTasks: [
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-08T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Website App",
           _id: "65c3535476ed5c48f9440973",
         },
@@ -1053,7 +1053,7 @@ export const summary = {
     {
       _id: "65c351b976ed5c48f9440947",
       title: "Website Project Proposal",
-      date: "2024-02-07T00:00:00.000Z",
+      date: "2025-01-20T00:00:00.000Z",
       priority: "high",
       stage: "todo",
       assets: [],
@@ -1082,13 +1082,13 @@ export const summary = {
       subTasks: [
         {
           title: "Blog App Dashboard",
-          date: "2024-02-06T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Design",
           _id: "65c352e776ed5c48f944095c",
         },
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-07T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Design",
           _id: "65c3531476ed5c48f9440965",
         },
