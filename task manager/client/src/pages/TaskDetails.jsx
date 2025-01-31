@@ -97,10 +97,11 @@ const TaskDetails = () => {
       <h1 className="text-2xl text-gray-600 font-bold">{task?.title}</h1>
 
       <Tabs tabs={TABS} setSelected={setSelected}>
-        {selected === 0 ? <>
+        {selected === 0 ? (
+        <>  
         <div className="w-full flex flex-col md:flex-row gap-5 2xl:gap-8 bg-white shadow-md p-8 overflow-y-auto">
 
-
+          {/*Left*/}
           <div className="w-full md:w-1/2 space-y-8">
           <div className="flex items-center gap-5">
             <div
@@ -174,21 +175,97 @@ const TaskDetails = () => {
                       </div>
                 </div>
 
+                <div className="space-y-4 py-6">
+                      <p className="text-gray-600 font-semibold test-sm ">
+                        SUB-TASK
+                      </p>
+                      <div className="space-y-8">
+                        {task?.subTasks?.map((el, index)=> (
+                          <div key={index} className="flex gap-3">
+                            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-violet-50">
+                              <MdTaskAlt className="text-violet-600" size={26} />
+                            </div>
+
+                            <div className="space-y-1">
+                              <div className="flex gap-2 items-center">
+                                <span className=" text-sm text-gray-500">{new Date(el?.date).toDateString()} </span>
+
+                                <span className="px-2 py-0.5 text-center text-sm rounded-full bg-violet-100 text-violet-700 font-semibold">{el?.tag}</span>
+                              </div>
+
+                              <p className="text-gray-700">{el?.title}</p>
+
+                            </div>
+
+                          </div>
+
+
+                        ))}
+
+                      </div>
+
+                </div>
+
 
           </div>
 
-          {/* LEFT */}
-          <div className="w-full md:w-1/2 space-y-8"></div>
+          {/* Right */}
+          <div className="w-full md:w-1/2 space-y-8">
+             <p className='text-lg font-semibold'>ASSETS</p>
+
+             <div className="w-full grid grid-cols-2 gap-4">
+              {task?.assets?.map((el, index) => (
+                <img 
+                key={index}
+                src={el}
+                alt={task.title}
+                className="w-full rounded h-28 md:h-36 2xl:h-52 cursor-pointer transition-all duration-700 hover:scale-125 hover:z-50"
+                />
+              ))}
+             </div>
+          </div>
 
         </div>
         
         
-        </>: <></>}
+        </>
+      ) : (
+      <>
+      <Activities activity={task?.activities} id={id}/>
+      </>
+    )}
 
       </Tabs>
       
       </div>
   
+};
+
+const Activities = ({activity, id}) => {
+  const [selected, setSelected] = useState(act_types[0]);
+  const [text, setText] = useState("");
+
+  return (
+  <div className="w-full flex gap-10 2xl:gap-20 min-h-screen px-10 py-8 bg-white shadow rounded-md justify-between overflow-y-auto">
+    <div className="w-full md:w-1/2">
+      <h4 className="text-gray-600 font-semibold text-lg mb-5">Activities</h4>
+
+      <div className="w-full ">
+        {activity?.map((el, index)=> (
+          <Card
+          key={index}
+          item={el}
+          isConnected = {index < activity.length-1}
+          />
+        ))}
+
+      </div>
+    </div>
+    <div className="w-full md:w-1/3">
+      
+    </div>
+  </div>
+  )
 }
 
 export default TaskDetails
