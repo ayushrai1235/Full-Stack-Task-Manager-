@@ -11,6 +11,7 @@ import TaskTitle from "../components/TaskTitle.jsx";
 import BoardView from "../components/BoardView.jsx";
 import { tasks } from "../assets/dummydata.js";
 import Table from "../components/task/Table.jsx";
+import AddTask from "../components/task/AddTask.jsx";
 
 const TABS = [
   { title: "Board View", icon: <MdGridView /> },
@@ -49,7 +50,9 @@ const Tasks = () => {
         icon={<IoMdAdd className='text-lg' />}
         className='flex flex-row-reverse gap-1 items-center bg-blue-600 text-white rounded-md py-2 2xl:py-2.5'
       />
+      
         )}
+        <AddTask open={open} setOpen={setOpen}/>
       </div>
      
       
