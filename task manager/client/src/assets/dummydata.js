@@ -783,6 +783,12 @@ export const summary = {
       ],
       team: [
         {
+          _id: "65c202d4aa62f32ffd1303cc",
+          name: "Ayush Rai",
+          title: "Administrator",
+          email: "admin@gmail.com",
+        },
+        {
           _id: "65c317360fd860f958baa08e",
           name: "Alex Johnson",
           title: "UX Designer",
@@ -799,36 +805,36 @@ export const summary = {
       activities: [
         {
           type: "started",
-          activity: "Project completed!!",
+          activity: "Project Started!!",
           date: "2025-01-20T00:00:00.000Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Ayush Rai" },
           _id: "65c51b998064dfd208b3f9",
         },
         {
           type: "commented",
-          activity: "Project completed!!",
+          activity: "Project commented!!",
           date: "2025-01-20T00:00:00.000Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Ayush Rai" },
           _id: "65c51b98064df97d208b3f9",
         },
         {
           type: "completed",
           activity: "Project completed!!",
-          date: "2024-02-08T18:13:14.717Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          date: "2025-01-20T00:00:00.000Z",
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Ayush Rai" },
           _id: "65c51b998064df97d208b3f9",
         },
       ],
       subTasks: [
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-08T00:00:00.000Z",
+          date: "2025-01-20T00:00:00.000Z",
           tag: "Website App",
           _id: "65c3535476ed5c48f9440973",
         },
       ],
-      createdAt: "2024-02-08T04:59:34.826Z",
-      updatedAt: "2024-02-09T06:51:15.005Z",
+      createdAt: "2025-01-20T00:00:00.000Z",
+      updatedAt: "2025-01-20T00:00:00.000Z",
       __v: 3,
     },
     {
