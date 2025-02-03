@@ -38,7 +38,8 @@ const Users = () => {
       </tr>
     </thead>
   );
-
+ 
+  
   const TableRow = ({ user }) => (
     <tr className='border-b border-gray-200 text-gray-600 hover:bg-gray-400/10'>
       <td className='p-2'>
