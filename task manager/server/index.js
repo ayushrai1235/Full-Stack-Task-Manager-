@@ -3,13 +3,14 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import dbConnection from "./utils/DB.js";
+import connectDB from "./utils/DB.js";
 import routes from "./routes/routes.js";
 
-dotenv.config();
+dotenv.config({
+    path: './.env'
+})
 
-
-dbConnection();
+connectDB();
 
 const PORT = process.env.PORT || 5000;
 
@@ -33,4 +34,5 @@ app.use("/api/v1", routes);
 // app.use(routeNotFound);
 // app.use(errorHandler);
 
-app.listen(PORT, () => console.log("Server start at port ", PORT) )
+app.listen(PORT, () => 
+    console.log("Server start at port ", PORT) )
