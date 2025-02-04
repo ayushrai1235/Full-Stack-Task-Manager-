@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./utils/DB.js";
 import routes from "./routes/routes.js";
+import { routeNotFound, errorHandler } from "./middlewares/error.middleware.js";
 
 dotenv.config({
     path: './.env'
@@ -25,14 +26,15 @@ app.use(cors({
 
 app.use(express.json())
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
+
 
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use("/api/v1", routes);
 
-// app.use(routeNotFound);
-// app.use(errorHandler);
+app.use(routeNotFound);
+app.use(errorHandler);
 
 app.listen(PORT, () => 
     console.log("Server start at port ", PORT) )
