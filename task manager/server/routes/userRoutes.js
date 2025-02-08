@@ -1,11 +1,11 @@
 import express from 'express';
 import { protectRoute, isAdminRoute } from '../middlewares/auth.middleware.js';
-import { registerUser } from '../controllers/user.controller.js';
+import { registerUser, loginUser } from '../controllers/user.controller.js';
 
 const router = express.Router();
 
 router.post('/register', registerUser)
-// router.post('/login', loginUser)
+router.post('/login', loginUser)
 // router.post('/logout', registerUser)
 
 
