@@ -1,9 +1,10 @@
-import { Router } from "express";
+import express, { Router } from "express";
+import taskRoutes from "./taskRoutes.js";
+import userRoutes from "./userRoutes.js";
 const router = Router();
 
-// Example API endpoint
-router.get("/", (req, res) => {
-    res.post("API is working!");
-});
+router.use("/user", userRoutes);
+router.use("/task", taskRoutes);
 
-export default router; // ✅ Ensure it's exported properly
+export default router;
+
