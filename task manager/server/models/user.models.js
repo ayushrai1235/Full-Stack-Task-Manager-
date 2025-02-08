@@ -7,9 +7,9 @@ const userSchema = new mongoose.Schema({
     role: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    isAdmin: {type: Boolean, required: true, default: false},
+    isAdmin: {type: Boolean, default: false},
     tasks: [{type: mongoose.Schema.Types.ObjectId, ref: "Task"}],
-    isActive: {type: Boolean, required: true, default: true},
+    isActive: {type: Boolean,  default: true},
 }, {timestamps: true}
 
 );
@@ -22,7 +22,7 @@ userSchema.pre("save", async function(next) {
     this.password = await bcrypt.hash(this.password, salt);
 })
 
-userSchema.method.matchPassword = async function(enteredPassword) {
+userSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 }
 
