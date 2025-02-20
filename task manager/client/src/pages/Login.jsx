@@ -6,8 +6,13 @@ import Textbox from '../components/Textbox.jsx'
 import Button from '../components/Button.jsx'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useLoginMutation } from '../redux/slices/authApiSlice.js'
+import { toast } from 'sonner'
+import { useDispatch } from 'react-redux'
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {user} = useSelector(state => state.auth);
   const {
     register,
@@ -15,10 +20,18 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate();
-
+  
+  const [login, {isLoading}] = useLoginMutation();
   const submitHandler = async (data) => {
-    console.log("submit");
+    try {
+      const result = await login(data).unwrap();
+      console.log(result);
+
+    } 
+    catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message || error.message);
+    }
   }
 
   useEffect(() => {

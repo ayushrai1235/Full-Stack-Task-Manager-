@@ -33,9 +33,10 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use("/api/v1", routes);
 
+console.log("Routes Loaded:", routes.stack.map((r) => r.route?.path));
+
 app.use(routeNotFound);
 app.use(errorHandler);
-
 
 
 app.listen(PORT, () => 
