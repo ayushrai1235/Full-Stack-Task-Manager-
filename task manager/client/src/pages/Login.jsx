@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom'
 import { useLoginMutation } from '../redux/slices/authApiSlice.js'
 import { toast } from 'sonner'
 import { useDispatch } from 'react-redux'
+import { setCredentials } from '../redux/slices/authSlice.js'
+import Loading from '../components/Loader.jsx'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,7 +27,9 @@ const Login = () => {
   const submitHandler = async (data) => {
     try {
       const result = await login(data).unwrap();
-      console.log(result);
+      
+      dispatch(setCredentials(result));
+      navigate("/");
 
     } 
     catch (error) {
@@ -98,11 +102,14 @@ const Login = () => {
                 <Link to="/register">Doesn't have an account? Go to Register</Link>
               </span>
 
-              <Button
+             {isLoading ? (
+              <Loading />
+             ) : ( <Button
                 type='submit'
                 label='Submit'
                 className='w-full h-10 bg-blue-700 text-white rounded-full'
-              />
+              /> 
+              )}
           </div>
 
           </form>

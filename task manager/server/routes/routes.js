@@ -1,14 +1,10 @@
-import express, { Router } from "express";
-import taskRoutes from "./taskRoutes.js";
+import express from "express";
 import userRoutes from "./userRoutes.js";
+import taskRoutes from "./taskRoutes.js";
 
-const router = Router();
+const router = express.Router();
 
-router.use("/user", userRoutes);
+router.use("/user", userRoutes); //api/user/login
 router.use("/task", taskRoutes);
-
-// ✅ Debugging: Show which routes are being registered
-console.log("User Routes:", userRoutes.stack?.map(r => r.route?.path));
-console.log("Task Routes:", taskRoutes.stack?.map(r => r.route?.path));
 
 export default router;

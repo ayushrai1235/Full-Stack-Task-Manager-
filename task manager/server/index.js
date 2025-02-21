@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import connectDB from "./utils/DB.js";
+import {dbConnection} from "./utils/DB.js";
 import routes from "./routes/routes.js";
 import { routeNotFound, errorHandler } from "./middlewares/error.middleware.js";
 
@@ -11,7 +11,7 @@ dotenv.config({
     path: './.env'
 })
 
-connectDB();
+dbConnection();
 
 const PORT = process.env.PORT || 5000;
 
@@ -33,7 +33,13 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use("/api/v1", routes);
 
-console.log("Routes Loaded:", routes.stack.map((r) => r.route?.path));
+app._router.stack.forEach((r) => {
+    if (r.route) {
+        console.log(r.route.path);
+    }
+       
+});
+
 
 app.use(routeNotFound);
 app.use(errorHandler);
