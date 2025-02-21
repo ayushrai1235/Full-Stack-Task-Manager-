@@ -6,8 +6,15 @@ import Textbox from '../components/Textbox.jsx'
 import Button from '../components/Button.jsx'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useLoginMutation } from '../redux/slices/authApiSlice.js'
+import { toast } from 'sonner'
+import { useDispatch } from 'react-redux'
+import { setCredentials } from '../redux/slices/authSlice.js'
+import Loading from '../components/Loader.jsx'
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {user} = useSelector(state => state.auth);
   const {
     register,
@@ -15,10 +22,20 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate();
-
+  
+  const [login, {isLoading}] = useLoginMutation();
   const submitHandler = async (data) => {
-    console.log("submit");
+    try {
+      const result = await login(data).unwrap();
+      
+      dispatch(setCredentials(result));
+      navigate("/");
+
+    } 
+    catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message || error.message);
+    }
   }
 
   useEffect(() => {
@@ -85,11 +102,14 @@ const Login = () => {
                 <Link to="/register">Doesn't have an account? Go to Register</Link>
               </span>
 
-              <Button
+             {isLoading ? (
+              <Loading />
+             ) : ( <Button
                 type='submit'
                 label='Submit'
                 className='w-full h-10 bg-blue-700 text-white rounded-full'
-              />
+              /> 
+              )}
           </div>
 
           </form>
