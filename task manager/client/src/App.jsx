@@ -26,8 +26,7 @@ import mobileMenuRef from "react";
 import Register from "./pages/Register.jsx";
 
 function Layout() {
-  const user = true;
-  // const {user} = useSelector(state => state.auth);
+  const {user} = useSelector(state => state.auth);
   const location = useLocation();
   return user ? (
     <div className="w-full h-screen flex flex-col md:flex-row">

@@ -5,21 +5,35 @@ import Button from '../components/Button.jsx'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
+import { useRegisterMutation } from '../redux/slices/authApiSlice.js'
 
 const Register = () => {
   const {user} = useSelector(state => state.auth);
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
-
+  const [registerUser, {isLoading}] = useRegisterMutation();
   const navigate = useNavigate();
 
   const submitHandler = async (data) => {
-    console.log("submit");
+    try {
+      if (data.password !== data.confirmPassword) {
+        toast.error("Passwords don't match!");
+        return;
+      }
+       const result = await registerUser(data).unwrap();
+       toast.success("New User Added successfully");
+       navigate("/login");
+    }
+     catch (error) {
+      toast.error(error?.data?.message);
+    }
+    
   }
-
   useEffect(() => {
     user && navigate('/login');
   }, [user]);
@@ -56,45 +70,99 @@ const Register = () => {
 
           <div className='flex flex-col gap-y-5'>
             <Textbox 
-            placeholder='Email'
-            type='email'
-            name='email'
-            label='Email Address'
-            className='w-full rounded-full'
-            register={register('email', { required: 'Email is required' })}
-            
+              placeholder='Full Name'
+              type='text'
+              name='name'
+              label='Full Name'
+              className='w-full rounded-full'
+              register={register('name', { required: 'Full name is required' })}
+              error={errors.fullName ? errors.fullName.message : ""}
             />
-          </div>
 
-          <div className='flex flex-col gap-y-5'>
             <Textbox 
-            placeholder='Enter Your Password'
-            type='password'
-            name='password'
-            label='Password'
-            className='w-full rounded-full'
-            register={register('password', { required: 'Password is required' })}
-            
+              placeholder='Email'
+              type='email'
+              name='email'
+              label='Email Address'
+              className='w-full rounded-full'
+              register={register('email', { required: 'Email is required' })}
+              error={errors.email ? errors.email.message : ""}
             />
 
-          <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
-                Forget Password?
-              </span>
-              <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
-                <Link to="/login">Already logged in? Go to Login</Link>
-              </span>
-        
-              <Button
-                type='submit'
-                label='Submit'
-                className='w-full h-10 bg-blue-700 text-white rounded-full'
+            <Textbox 
+              placeholder='Your Title'
+              type='text'
+              name='title'
+              label='Title'
+              className='w-full rounded-full'
+              register={register('title', { required: 'Title is required' })}
+              error={errors.title ? errors.title.message : ""}
+            />
+
+            <Textbox 
+              placeholder='Your Role'
+              type='text'
+              name='role'
+              label='Role'
+              className='w-full rounded-full'
+              register={register('role', { required: 'Role is required' })}
+              error={errors.role ? errors.role.message : ""}
+            />
+
+            <Textbox 
+              placeholder='Enter Your Password'
+              type='password'
+              name='password'
+              label='Password'
+              className='w-full rounded-full'
+              register={register('password', { required: 'Password is required' })}
+              error={errors.password ? errors.password.message : ""}
+            />
+
+            <Textbox 
+              placeholder='Confirm Password'
+              type='password'
+              name='confirmPassword'
+              label='Confirm Password'
+              className='w-full rounded-full'
+              register={register('confirmPassword', { 
+                required: 'Please confirm your password',
+                validate: (val) => {
+                  if (watch('password') != val) {
+                    return "Passwords do not match";
+                  }
+                }
+              })}
+              error={errors.confirmPassword ? errors.confirmPassword.message : ""}
+            />
+
+            <div className='flex items-center gap-2'>
+              <input
+                type='checkbox'
+                id='isAdmin'
+                {...register('isAdmin')}
+                className='w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500'
               />
+              <label htmlFor='isAdmin' className='text-sm text-gray-700'>
+                Register as Admin
+              </label>
+            </div>
+
+            <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
+              Forget Password?
+            </span>
+            <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
+              <Link to="/login">Already logged in? Go to Login</Link>
+            </span>
+        
+            <Button
+              type='submit'
+              label='Submit'
+              className='w-full h-10 bg-blue-700 text-white rounded-full'
+            />
           </div>
-
           </form>
-
         </div>
-
       </div>
     </div>
   )
