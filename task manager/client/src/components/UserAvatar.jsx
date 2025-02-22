@@ -3,21 +3,35 @@ import {Menu, Transition} from "@headlessui/react";
 import {Fragment, useState} from "react";
 import { FaUser, FaUserLock } from 'react-icons/fa';
 import { IoLogOutOutline } from 'react-icons/io5';
-import { get } from 'react-hook-form';
 import { getInitials } from '../utils/utils.js';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import {useLogoutMutation} from '../redux/slices/authApiSlice.js';
+import { toast } from 'sonner';
+import { logout } from '../redux/slices/authSlice.js';
 
 const UserAvatar = () => {
     const [Open, setOpen] = useState(false);
     const [openPassword, setOpenPassword] = useState(false);
     const {user} = useSelector(state => state.auth);
-    // const [logoutUser] = useLogoutMutation();
+    const [logoutUser] = useLogoutMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleLogout = () => {
-        console.log("Logging out");
+    const handleLogout = async() => {
+      try {
+        await logoutUser().unwrap();
+        dispatch(logout());
+
+        navigate('/login');
+      } catch (error) {
+        console.error('Logout error:', {
+          status: error.status,
+          message: error.data?.message || error.message,
+          error
+      });
+        toast.error("Something went wrong");
+      }
     }
   return (
     <div>
@@ -26,7 +40,6 @@ const UserAvatar = () => {
           <Menu.Button className="w-10 h-10 2xl:w-12 2xl:h-12 items-center justify-center rounded-full bg-blue-600">
             <span className='text-white font-semibold'>
               {getInitials(user?.name)}
-              A
             </span>
           </Menu.Button>
         </div>
