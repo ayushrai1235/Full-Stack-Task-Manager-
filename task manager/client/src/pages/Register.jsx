@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'sonner'
-import { useRegisterMutation } from '../redux/slices/authApiSlice.js'
+import { useRegisterMutation } from '../redux/slices/api/authApiSlice.js'
 
 const Register = () => {
   const {user} = useSelector(state => state.auth);

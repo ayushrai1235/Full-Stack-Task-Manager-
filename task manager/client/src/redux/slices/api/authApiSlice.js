@@ -1,4 +1,4 @@
-import { apiSlice } from "./apiSlice"
+import { apiSlice } from "../apiSlice"
 
 const AUTH_URL = "/user"
 
@@ -30,4 +30,4 @@ export const authApiSlice = apiSlice.injectEndpoints({
     })
 })
 
-export const {useLoginMutation, useRegisterMutation, useLogoutMutation}= authApiSlice
+export const {useLoginMutation, useRegisterMutation, useLogoutMutation} = authApiSlice

@@ -6,14 +6,15 @@ import { Dialog } from "@headlessui/react";
 import Textbox from "./Textbox";
 import Loading from "./Loader";
 import Button from "./Button";
-import { useRegisterMutation } from "../redux/slices/authApiSlice";
+import { useRegisterMutation } from "../redux/slices/api/authApiSlice.js";
 import { toast } from 'sonner'
+import { useUpdateUserMutation } from "../redux/slices/api/userApiSlice";
+import { useDispatch } from "react-redux";
+import { setCredentials } from '../redux/slices/authSlice.js'
 
 const AddUser = ({ open, setOpen, userData }) => {
   let defaultValues = userData ?? {};
   const { user } = useSelector((state) => state.auth);
-
-    const isUpdating = false;
 
   const {
     register,
@@ -21,12 +22,20 @@ const AddUser = ({ open, setOpen, userData }) => {
     formState: { errors },
   } = useForm({ defaultValues });
 
+  const dispatch = useDispatch();
     const [addNewUser, {isLoading}] = useRegisterMutation();
-
+  const [updateUser, {isLoading: isUpdating}] = useUpdateUserMutation();  
   const handleOnSubmit = async(data) => {
     try {
       if(userData){
-    }else{
+        const result = await updateUser(data).unwrap();
+        toast.success(result?.message);
+
+        if(userData?._id === user?._id){
+          dispatch(setCredentials({...result.user }))
+        }
+      }
+      else{
       const result = await addNewUser({...data, password:
       data.email}).unwrap();
         toast.success("New User Added successfully");
