@@ -7,6 +7,7 @@ import { getInitials } from "../utils/utils.js";
 import clsx from "clsx";
 import ConfirmatioDialog, { UserAction } from "../components/Dialogs";
 import AddUser from "../components/AddUser";
+import { useGetTeamListQuery } from "../redux/slices/api/userApiSlice.js";
 
 const Users = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -14,6 +15,8 @@ const Users = () => {
   const [openAction, setOpenAction] = useState(false);
   const [selected, setSelected] = useState(null);
 
+  const {data, isLoading, error} = useGetTeamListQuery()
+  console.log(data, error)
   const userActionHandler = () => {};
   const deleteHandler = () => {};
 
