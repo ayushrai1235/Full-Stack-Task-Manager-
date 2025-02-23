@@ -1,4 +1,4 @@
-// import { getTeamList } from "../../../../../server/controllers/user.controller"
+
 import { apiSlice } from "../apiSlice"
 
 const USER_URL = "/user"

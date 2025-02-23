@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Title from "../components/Title";
 import Button from "../components/Button";
 import { IoMdAdd } from "react-icons/io";
-import { summary } from "../assets/dummydata.js";
 import { getInitials } from "../utils/utils.js";
 import clsx from "clsx";
 import ConfirmatioDialog, { UserAction } from "../components/Dialogs";
@@ -16,7 +15,7 @@ const Users = () => {
   const [selected, setSelected] = useState(null);
 
   const {data, isLoading, error} = useGetTeamListQuery()
-  console.log(data, error)
+  console.log(data, error);
   const userActionHandler = () => {};
   const deleteHandler = () => {};
 
@@ -108,7 +107,7 @@ const Users = () => {
             <table className='w-full mb-5'>
               <TableHeader />
               <tbody>
-                {summary.users?.map((user, index) => (
+                {data?.map((user, index) => (
                   <TableRow key={index} user={user} />
                 ))}
               </tbody>
