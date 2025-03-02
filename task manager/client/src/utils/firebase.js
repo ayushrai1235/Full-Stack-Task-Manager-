@@ -8,14 +8,14 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_FIREBASE_API_KEY,
-  authDomain: "fullstacktaskmanager.firebaseapp.com",
-  projectId: "fullstacktaskmanager",
-  storageBucket: "fullstacktaskmanager.firebasestorage.app",
-  messagingSenderId: "137012672008",
-  appId: "1:137012672008:web:ee2e026c82a92762fc03bd",
-  measurementId: "G-0E9KR7HJ1S"
+  authDomain: "task-manager-35957.firebaseapp.com",
+  projectId: "task-manager-35957",
+  storageBucket: "task-manager-35957.firebasestorage.app",
+  messagingSenderId: "675045700773",
+  appId: "1:675045700773:web:0bb94942bf4b8fb739c94c",
+  measurementId: "G-41QN1WK5FD"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
