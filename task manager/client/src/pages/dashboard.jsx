@@ -15,6 +15,8 @@ import { summary } from "../assets/dummydata.js";
 import {Chart} from "../components/Chart.jsx";
 import { BGS, PRIOTITYSTYELS, TASK_TYPE, getInitials } from "../utils/utils.js";
 import UserInfo from "../components/UserInfo.jsx";
+import { useGetDashBoardQuery } from "../redux/slices/api/taskApiSlice.js";
+import  Loading  from "../components/Loader.jsx";
 
 const TaskTable = ({ tasks }) => {
   const ICONS = {
@@ -126,7 +128,7 @@ const UserTable = ({ users }) => {
             user?.isActive ? "bg-blue-200" : "bg-yellow-100"
           )}
         >
-          {user?.isActive ? "Active" : "Disabled"}
+          {user.isActive ? "Active" : "Disabled"}
         </p>
       </td>
       <td className='py-2 text-sm'>{moment(user?.createdAt).fromNow()}</td>
@@ -148,12 +150,21 @@ const UserTable = ({ users }) => {
 };
 
 const Dashboard = () => {
-const totals = summary.tasks
+const {data, isLoading} = useGetDashBoardQuery();
+
+if (isLoading)
+  return(
+    <div className="py-10">
+      <Loading/>
+    </div>
+  );
+
+const totals = data?.tasks;
   const stats = [
     {
       _id: "1",
       label: "TOTAL TASK",
-      total: summary?.totalTasks || 0,
+      total: data?.totalTasks || 0,
       icon: <FaNewspaper />,
       bg: "bg-[#1d4ed8]",
     },
@@ -211,17 +222,17 @@ const totals = summary.tasks
         <h4 className="text-xl text-gray-600 font-semibold">
           Chart by Priority
         </h4>
-        <Chart/>
+        <Chart data={data?.graphData} />
         </div>
         
       <div className='w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8'>
         {/* /left */}
 
-        <TaskTable tasks={summary.last10Task} />
+        <TaskTable tasks={data?.last10Task} />
 
         {/* /right */}
 
-        <UserTable users={summary.users} />
+        <UserTable users={data?.users} />
       </div>
     </div>
   

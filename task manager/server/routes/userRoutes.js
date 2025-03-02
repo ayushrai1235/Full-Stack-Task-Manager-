@@ -1,5 +1,5 @@
 import express from "express";
-import { registerUser, loginUser, logoutUser, getNotificationsList, getTeamList, updateUserProfile, markNotificationRead, changeUserPassword } from "../controllers/user.controller.js";
+import { registerUser, loginUser, logoutUser, getNotificationsList, getTeamList, updateUserProfile, markNotificationRead, changeUserPassword,activateUserProfile,deleteUserProfile } from "../controllers/user.controller.js";
 import { protectRoute, isAdminRoute } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
@@ -14,7 +14,10 @@ router.put("/profile", protectRoute, updateUserProfile);
 router.put("/read-noti", protectRoute, markNotificationRead);
 router.put("/change-password", protectRoute, changeUserPassword);
 
-// ✅ Debugging: Show all user routes
-console.log("User Routes Loaded:", router.stack.map((r) => r.route?.path));
+// //   FOR ADMIN ONLY - ADMIN ROUTES
+router
+  .route("/:id")
+  .put(protectRoute, isAdminRoute, activateUserProfile)
+  .delete(protectRoute, isAdminRoute, deleteUserProfile);
 
 export default router;

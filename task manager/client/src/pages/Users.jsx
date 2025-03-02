@@ -91,7 +91,7 @@ const Users = () => {
         <div className='flex items-center gap-3'>
           <div className='w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-blue-700'>
             <span className='text-xs md:text-sm text-center'>
-              {getInitials(user.name)}
+              {getInitials(user?.name||"Unknown")}
             </span>
           </div>
           {user.name}
