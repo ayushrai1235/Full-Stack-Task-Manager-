@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useLogoutMutation} from '../redux/slices/api/authApiSlice.js';
 import { toast } from 'sonner';
 import { logout } from '../redux/slices/authSlice.js';
+import AddUser from './AddUser';
+import ChangePassword from './ChangePassword';
 
 const UserAvatar = () => {
     const [Open, setOpen] = useState(false);
@@ -34,6 +36,7 @@ const UserAvatar = () => {
       }
     }
   return (
+    <>
     <div>
       <Menu as="div" className="relative inline-block text-left">
         <div>
@@ -94,6 +97,12 @@ const UserAvatar = () => {
           </Transition>
       </Menu>
     </div>
+
+    <AddUser open={Open} setOpen={setOpen} userData={user} />
+    <ChangePassword open={openPassword} setOpen={setOpenPassword} />
+    
+    </>
+    
   )
 }
 
