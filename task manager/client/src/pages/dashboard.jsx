@@ -67,7 +67,7 @@ const TaskTable = ({ tasks }) => {
                 BGS[index % BGS.length]
               )}
             >
-              <UserInfo user={m} />
+              <UserInfo user={data?.user} />
             </div>
           ))}
         </div>
