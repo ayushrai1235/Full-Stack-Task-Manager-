@@ -159,12 +159,12 @@ if (isLoading)
     </div>
   );
 
-const totals = data?.tasks;
+const totals = data.tasks;
   const stats = [
     {
       _id: "1",
       label: "TOTAL TASK",
-      total: data?.totalTasks || 0,
+      total: data.totals || 0,
       icon: <FaNewspaper />,
       bg: "bg-[#1d4ed8]",
     },

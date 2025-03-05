@@ -9,7 +9,6 @@ import Button from "../components/Button.jsx";
 import Tabs from "../components/Tabs.jsx";
 import TaskTitle from "../components/TaskTitle.jsx";
 import BoardView from "../components/BoardView.jsx";
-import { tasks } from "../assets/dummydata.js";
 import Table from "../components/task/Table.jsx";
 import AddTask from "../components/task/AddTask.jsx";
 import { useGetAllTasksQuery } from "../redux/slices/api/taskApiSlice.js";
