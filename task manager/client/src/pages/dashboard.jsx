@@ -59,7 +59,7 @@ const TaskTable = ({ tasks }) => {
 
       <td className='py-2'>
         <div className='flex'>
-          {task.team.map((m, index) => (
+          {task.team.map((member, index) => (
             <div
               key={index}
               className={clsx(
@@ -67,7 +67,7 @@ const TaskTable = ({ tasks }) => {
                 BGS[index % BGS.length]
               )}
             >
-              <UserInfo user={data?.user} />
+              {getInitials(member.name)}
             </div>
           ))}
         </div>
@@ -238,4 +238,4 @@ const totals = data.tasks;
   
 }
 
-export default Dashboard ;
+export default Dashboard;
