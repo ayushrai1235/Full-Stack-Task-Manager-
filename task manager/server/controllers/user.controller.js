@@ -1,3 +1,4 @@
+import Notice from "../models/notification.models.js";
 import User from "../models/user.models.js";
 import { createJWT } from "../utils/createJWT.js";
 

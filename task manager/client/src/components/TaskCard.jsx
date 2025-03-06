@@ -122,7 +122,7 @@ const TaskCard = ({ task }) => {
         </div>
       </div>
 
-      <AddSubTask open={open} setOpen={setOpen} id={task._id} />
+      <AddSubTask open={open} setOpen={setOpen} id={task?._id} />
     </>
   );
 };

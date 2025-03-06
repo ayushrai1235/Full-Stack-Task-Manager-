@@ -5,14 +5,15 @@ import { summary } from "../../assets/dummydata.js";
 import clsx from "clsx";
 import { getInitials } from "../../utils/utils.js";
 import { MdCheck } from "react-icons/md";
+import { useGetTeamListQuery } from "../../redux/slices/api/userApiSlice.js";
 
 const UserList = ({ setTeam, team }) => {
-  const data = summary.users;
+  const { data, isLoading } = useGetTeamListQuery();
   const [selectedUsers, setSelectedUsers] = useState([]);
 
-  const handleChange = (el) => {
-    setSelectedUsers(el);
-    setTeam(el?.map((u) => u._id));
+  const handleChange = (selectedUsers) => {
+    setSelectedUsers(selectedUsers);
+    setTeam(selectedUsers); // Pass the full user objects to parent
   };
   useEffect(() => {
     if (team?.length < 1) {
@@ -20,7 +21,7 @@ const UserList = ({ setTeam, team }) => {
     } else {
       setSelectedUsers(team);
     }
-  }, []);
+  }, [isLoading]);
 
   return (
     <div>
