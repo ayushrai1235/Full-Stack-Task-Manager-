@@ -18,8 +18,6 @@ const PRIORIRY = ["HIGH", "MEDIUM", "NORMAL", "LOW"];
 const uploadedFileURLs = [];
 
 const AddTask = ({ open, setOpen, task }) => {
- 
-
   const {
     register,
     handleSubmit,
@@ -71,7 +69,10 @@ const AddTask = ({ open, setOpen, task }) => {
 
     } catch (error) {
       console.log("Error creating task", error.message);
-      toast.error(error?.data?.message || error.error);
+      // toast.error(error?.data?.message || error.error);
+      setTimeout(() => {
+        setOpen(false);
+      },500);
     }
   };
 
