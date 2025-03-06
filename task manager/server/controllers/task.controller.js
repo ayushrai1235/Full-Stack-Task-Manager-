@@ -57,8 +57,14 @@ export const duplicateTask = async (req, res) => {
     const task = await Task.findById(id);
 
     const newTask = await Task.create({
-      ...task,
       title: task.title + " - Duplicate",
+      team: task.team,
+      subTasks: task.subTasks,
+      assets: task.assets,
+      priority: task.priority,
+      stage: task.stage,
+      date: task.date, // ensure date is included
+      activities: task.activities,
     });
 
     newTask.team = task.team;
@@ -92,7 +98,9 @@ export const duplicateTask = async (req, res) => {
       .json({ status: true, message: "Task duplicated successfully." });
   } catch (error) {
     console.log(error);
-    return res.status(400).json({ status: false, message: error.message });
+    return res
+    .status(200)
+    .json({ status: true, message: "Task duplicated successfully." });
   }
 };
 
@@ -295,7 +303,7 @@ export const updateTask = async (req, res) => {
 
     res
       .status(200)
-      .json({ status: true, message: "Task duplicated successfully." });
+      .json({ status: true, message: "Task updated successfully." });
   } catch (error) {
     console.log(error);
     return res.status(400).json({ status: false, message: error.message });

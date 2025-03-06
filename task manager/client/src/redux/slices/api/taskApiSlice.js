@@ -42,8 +42,15 @@ export const taskApiSlice = apiSlice.injectEndpoints({
                 body: data
             })
         }),
+        trashTask: builder.mutation({
+        query: ({id}) => ({
+            url: `${TASK_URL}/${id}`,
+            method: "PUT",
+            credentials: "include",
+        })
+        })
 
     })
 });
 
-export const {useGetDashBoardQuery, useGetAllTasksQuery, useCreateTaskMutation, useUpdateTaskMutation, useDuplicateTaskMutation}= taskApiSlice;
+export const {useGetDashBoardQuery, useGetAllTasksQuery, useCreateTaskMutation, useUpdateTaskMutation, useDuplicateTaskMutation, useTrashTaskMutation}= taskApiSlice;
