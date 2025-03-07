@@ -33,7 +33,7 @@ const NotificationPanel = () => {
     await markAsRead({type, id}).unwrap();
     refetch()
   };
-  console.log(data)
+
   const viewHandler = async(el) => {
     setSelected(el)
     readHandler("one",el._id);
