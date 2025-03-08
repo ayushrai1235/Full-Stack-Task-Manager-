@@ -160,11 +160,12 @@ if (isLoading)
   );
 
 const totals = data.tasks;
+
   const stats = [
     {
       _id: "1",
       label: "TOTAL TASK",
-      total: data.totals || 0,
+      total: (totals["completed"] || 0) + (totals["in progress"] || 0) + (totals["todo"] || 0),
       icon: <FaNewspaper />,
       bg: "bg-[#1d4ed8]",
     },
